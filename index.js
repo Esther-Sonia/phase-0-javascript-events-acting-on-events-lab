@@ -1,27 +1,27 @@
-const dodger = document.getElementById('dodger');
+const dodger = document.getElementById("dodger");
 
 function moveDodgerLeft() {
-  let left = parseInt(dodger.style.left.replace('px', '')) || 0;
+  const leftNumbers = dodger.style.left.replace("px", "");
+  const left = parseInt(leftNumbers, 10);
 
   if (left > 0) {
-    dodger.style.left = `${left - 10}px`;
+    dodger.style.left = `${left - 1}px`;
   }
 }
 
 function moveDodgerRight() {
-  let left = parseInt(dodger.style.left.replace('px', '')) || 0;
+  const leftNumbers = dodger.style.left.replace("px", "");
+  const left = parseInt(leftNumbers, 10);
 
-  if (left < 360) {
-    dodger.style.left = `${left + 10}px`;
+  if (left < 300) {  
+    dodger.style.left = `${left + 1}px`;
   }
 }
 
-
-
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowLeft') {
+document.addEventListener("keydown", function (e) {
+  if (e.key === "ArrowLeft") {
     moveDodgerLeft();
-  } else if (event.key === 'ArrowRight') {
+  } else if (e.key === "ArrowRight") {
     moveDodgerRight();
   }
 });
